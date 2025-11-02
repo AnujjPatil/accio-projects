@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Signup Form</title>
+    <meta name="description" content="A dark-themed signup form for user registration.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> 
+
+    <style>
+        body {
+            /* Dark theme background */
+            background-color: #000000; 
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .signup-container {
+            width: 350px;
+            padding: 20px;
+        }
+
+        /* Header Styling */
+        header h1 {
+            font-size: 40px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        /* Form Group Styling */
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        /* Input and Label Styling */
+        .form-group label {
+            position: absolute;
+            top: -15px; /* Move label above the line/input */
+            left: 0;
+            font-size: 14px;
+            opacity: 0; /* Hide default label, text inside input will act as label */
+        }
+
+        .form-group input:not([type="radio"]):not([type="checkbox"]) {
+            width: 100%;
+            padding: 5px 0;
+            background: none;
+            border: none;
+            border-bottom: 1px solid white; /* The prominent white line */
+            color: white;
+            font-size: 16px;
+            outline: none;
+            /* Placeholder styling to mimic the text appearance in the image */
+        }
+
+        /* Specific styles for radio/checkbox groups */
+        .radio-group, .terms-group {
+            font-size: 16px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .radio-group label {
+            margin-right: 20px;
+            position: relative;
+            opacity: 1;
+            top: auto;
+            left: auto;
+            font-size: 16px;
+        }
+
+        /* Submit Button Styling */
+        .submit-button {
+            background-color: #000000;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            padding: 10px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 5px; /* Soft rounding for the button */
+        }
+
+        .submit-button:hover {
+            background-color: #333333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="signup-container">
+    <header>
+        <h1>Signup</h1>
+    </header>
+
+    <main>
+        <form action="/submit-signup" method="POST">
+            
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Full Name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Password" required minlength="8">
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required minlength="8">
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="text" id="dob" name="dob" placeholder="dd-mm-yyyy" required>
+            </div>
+
+            <div class="radio-group">
+                <input type="radio" id="student" name="userType" value="student" required checked>
+                <label for="student">Student</label>
+
+                <input type="radio" id="employee" name="userType" value="employee">
+                <label for="employee">Employee</label>
+            </div>
+
+            <div class="terms-group">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms" style="margin-left: 5px;">I agree to all the Terms and conditions</label>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="submit-button">Signup</button>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        </footer>
+</div>
+
+</body>
+</html>
